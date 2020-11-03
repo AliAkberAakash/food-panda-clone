@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_panda_clone/data/models/restaurant_details/food_category.dart';
 import 'package:food_panda_clone/ui/features/home/widgets/category_widget.dart';
 import 'package:food_panda_clone/utils/data.dart';
+import 'package:food_panda_clone/utils/my_colors.dart';
 
 class MainBodyHome extends StatefulWidget {
   @override
@@ -40,6 +41,7 @@ class _MainBodyHomeState extends State<MainBodyHome> {
           });
 
           return Scaffold(
+            backgroundColor: white,
             appBar: AppBar(
               bottom: TabBar(
                 isScrollable: true,

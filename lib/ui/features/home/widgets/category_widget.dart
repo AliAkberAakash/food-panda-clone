@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_panda_clone/data/models/restaurant_details/food_category.dart';
 import 'package:food_panda_clone/data/models/restaurant_details/food_item.dart';
+import 'package:food_panda_clone/ui/features/home/widgets/food_item_widget.dart';
 import 'package:food_panda_clone/utils/my_colors.dart';
 
 class CategoryWidget extends StatefulWidget {
@@ -35,19 +36,24 @@ class _CategoryWidgetState extends State<CategoryWidget> {
         SizedBox(
           height: 10,
         ),
-        /*ListView.builder(
-          itemCount: widget.itemList.length,
-          itemBuilder: (context, index){
-            return Text(
-              widget.category.name,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            );
-          }
-        )*/
+        _foodItemList(),
       ],
     );
   }
+
+  Widget _foodItemList() {
+    List<FoodItemWidget> foodItemWidgetList = [];
+    for(FoodItem x in widget.itemList){
+      foodItemWidgetList.add(
+        FoodItemWidget(
+          item: x,
+        ),
+      );
+    }
+
+    return Column(
+      children: foodItemWidgetList,
+    );
+  }
+
 }

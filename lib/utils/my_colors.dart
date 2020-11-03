@@ -9,3 +9,4 @@ const primary_dark = Color(0xffffc7c7);
 const accent = Color(0xffaaaaaa);
 
 const text_color1 = Color(0xff212121);
+const text_color2 = Color(0xff616161);
