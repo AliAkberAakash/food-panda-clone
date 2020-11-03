@@ -72,7 +72,7 @@ class _FoodItemWidgetState extends State<FoodItemWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 5),
+                      padding: EdgeInsets.only(left: 10),
                       child: Image.network(
                         "https://source.unsplash.com/random/200x200",
                         height: 80,
