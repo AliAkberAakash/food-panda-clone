@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_panda_clone/data/models/restaurant_details/food_category.dart';
+import 'package:food_panda_clone/ui/features/home/widgets/category_widget.dart';
 import 'package:food_panda_clone/utils/data.dart';
 
 class MainBodyHome extends StatefulWidget {
@@ -44,6 +45,12 @@ class _MainBodyHomeState extends State<MainBodyHome> {
                 isScrollable: true,
                 tabs: tabs,
               ),
+            ),
+            body: ListView.builder(
+              itemCount: tabTextList.length,
+                itemBuilder: (context, index){
+                  return CategoryWidget(category:tabTextList[index], itemList: APP_DATA[tabTextList[index]],);
+                }
             ),
           );
         }
