@@ -51,7 +51,15 @@ class _MainBodyHomeState extends State<MainBodyHome> {
             body: ListView.builder(
               itemCount: tabTextList.length,
                 itemBuilder: (context, index){
-                  return CategoryWidget(category:tabTextList[index], itemList: APP_DATA[tabTextList[index]],);
+                  return Column(
+                    children: [
+                      Container(
+                        color: light_grey1,
+                        height: (index==0) ? 0 : 10,
+                      ),
+                      CategoryWidget(category:tabTextList[index], itemList: APP_DATA[tabTextList[index]],),
+                    ],
+                  );
                 }
             ),
           );

@@ -18,37 +18,41 @@ class CategoryWidget extends StatefulWidget {
 class _CategoryWidgetState extends State<CategoryWidget> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 0, 10),
-          child: Text(
-            widget.category.name,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: text_color1,
-              fontFamily: "Montserrat"
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15),
+            child: Text(
+              widget.category.name,
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: text_color1,
+                fontFamily: "Open Sans"
+              ),
             ),
           ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        _foodItemList(),
-      ],
+          _foodItemList(),
+        ],
+      ),
     );
   }
 
   Widget _foodItemList() {
     List<FoodItemWidget> foodItemWidgetList = [];
+    int i = 0;
     for(FoodItem x in widget.itemList){
       foodItemWidgetList.add(
         FoodItemWidget(
           item: x,
+          index : i,
         ),
       );
+
+      i++;
     }
 
     return Column(
