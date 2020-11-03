@@ -5,7 +5,7 @@ import 'package:food_panda_clone/core/pages/loading_pge.dart';
 import 'package:food_panda_clone/data/models/message_response.dart';
 import 'package:food_panda_clone/data/repositories/repository.dart';
 import 'package:food_panda_clone/di/dependency_injection.dart';
-import 'package:food_panda_clone/utils/string_formatter.dart';
+import 'package:food_panda_clone/ui/features/home/widgets/main_body_home.dart';
 
 import 'home_bloc.dart';
 
@@ -26,13 +26,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Home"
-        ),
-      ),
-      body: BlocProvider(
+    return BlocProvider(
         create: (context) => HomeBloc(repository: locator<Repository>())
         ..add(GetMessageEvent()), //load data at the start
         child: Builder(
@@ -46,11 +40,7 @@ class _HomePageState extends State<HomePage> {
                   if(state.response!=null){
                     _response = state.response; //in case we need the response
                     if(state.response.success){
-                      return Center(
-                        child: Text(
-                          checkNull(_response?.message),
-                        ),
-                      );
+                      return MainBodyHome();
                     }
                   }
                 }
@@ -59,7 +49,6 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
-      ),
     );
   }
 }
