@@ -25,6 +25,9 @@ class _MainBodyHomeState extends State<MainBodyHome> {
   void initState() {
     tabTextList = APP_DATA.keys.toList(growable: true);
     tabs = tabTextList.map((e) => Tab(text: e.name,)).toList(growable: true);
+
+    // set the listener for list item position so that
+    // on scrolling the list the tab also scrolls
     itemPositionsListener.itemPositions.addListener(() {
       ItemPosition pos = itemPositionsListener.itemPositions.value.elementAt(0);
       tabController.animateTo(pos.index, duration: Duration(milliseconds: 500));
@@ -40,6 +43,8 @@ class _MainBodyHomeState extends State<MainBodyHome> {
       child: Builder(
         builder: (context) {
 
+          // set the tab controller to update itemScrollController so that
+          // the list automatically scrolls to match the tab item
           tabController = DefaultTabController.of(context);
           tabController.addListener(() {
             if (!tabController.indexIsChanging) {
